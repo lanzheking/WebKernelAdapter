@@ -8,6 +8,8 @@ import android.os.Message;
 
 import com.honestwalker.android.webkerneladapter.R;
 
+import main.java.com.honestwalker.android.webkerneladapter.utils.ExceptionUtil;
+
 /**
  * Created by lanzhe on 17-11-8.
  */

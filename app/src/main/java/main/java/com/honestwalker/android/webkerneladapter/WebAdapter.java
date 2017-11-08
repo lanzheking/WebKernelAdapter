@@ -9,6 +9,7 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 import main.java.com.honestwalker.android.webkerneladapter.utils.ClassUtil;
+import main.java.com.honestwalker.android.webkerneladapter.utils.ExceptionUtil;
 
 /**
  * web 内核适配器

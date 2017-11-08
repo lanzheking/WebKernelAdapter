@@ -11,6 +11,7 @@ import android.webkit.ValueCallback;
 import com.honestwalker.android.webkerneladapter.WebAdapterView;
 
 import main.java.com.honestwalker.android.webkerneladapter.utils.ClassUtil;
+import main.java.com.honestwalker.android.webkerneladapter.utils.ExceptionUtil;
 
 /**
  * Created by lanzhe on 17-10-17.

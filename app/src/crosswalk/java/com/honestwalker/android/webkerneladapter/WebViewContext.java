@@ -5,8 +5,8 @@ import android.util.Log;
 
 import org.xwalk.core.XWalkCookieManager;
 
-import main.java.com.honestwalker.android.webkerneladapter.SharedPreferencesLoader;
-import main.java.com.honestwalker.android.webkerneladapter.utils.IWebViewContext;
+import com.honestwalker.android.webkerneladapter.SharedPreferencesLoader;
+import com.honestwalker.android.webkerneladapter.utils.IWebViewContext;
 
 /**
  * Created by lanzhe on 17-9-27.

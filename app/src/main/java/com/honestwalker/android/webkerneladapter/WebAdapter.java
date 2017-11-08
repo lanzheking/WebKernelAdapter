@@ -1,4 +1,4 @@
-package main.java.com.honestwalker.android.webkerneladapter;
+package com.honestwalker.android.webkerneladapter;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -8,8 +8,8 @@ import com.honestwalker.android.webkerneladapter.BuildConfig;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
-import main.java.com.honestwalker.android.webkerneladapter.utils.ClassUtil;
-import main.java.com.honestwalker.android.webkerneladapter.utils.ExceptionUtil;
+import com.honestwalker.android.webkerneladapter.utils.ClassUtil;
+import com.honestwalker.android.webkerneladapter.utils.ExceptionUtil;
 
 /**
  * web 内核适配器

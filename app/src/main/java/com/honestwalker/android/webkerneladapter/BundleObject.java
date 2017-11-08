@@ -1,4 +1,4 @@
-package main.java.com.honestwalker.android.webkerneladapter;
+package com.honestwalker.android.webkerneladapter;
 
 import java.io.Serializable;
 import java.util.HashMap;

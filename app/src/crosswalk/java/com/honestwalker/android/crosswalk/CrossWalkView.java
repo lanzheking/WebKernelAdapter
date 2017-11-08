@@ -16,8 +16,8 @@ import org.xwalk.core.XWalkSettings;
 import org.xwalk.core.XWalkUIClient;
 import org.xwalk.core.XWalkView;
 
-import main.java.com.honestwalker.android.webkerneladapter.FileChooseCallback;
-import main.java.com.honestwalker.android.webkerneladapter.WebUIClient;
+import com.honestwalker.android.webkerneladapter.FileChooseCallback;
+import com.honestwalker.android.webkerneladapter.WebUIClient;
 
 /**
  * Created by lanzhe on 17-9-25.

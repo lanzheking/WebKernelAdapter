@@ -19,13 +19,13 @@ import org.xwalk.core.XWalkWebResourceResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.java.com.honestwalker.android.webkerneladapter.FileChooseCallback;
-import main.java.com.honestwalker.android.webkerneladapter.FileChooser;
-import main.java.com.honestwalker.android.webkerneladapter.IWebView;
-import main.java.com.honestwalker.android.webkerneladapter.InterceptRequest;
-import main.java.com.honestwalker.android.webkerneladapter.JSExecutor;
-import main.java.com.honestwalker.android.webkerneladapter.JSParam;
-import main.java.com.honestwalker.android.webkerneladapter.event.WebProgressChangedEvent;
+import com.honestwalker.android.webkerneladapter.FileChooseCallback;
+import com.honestwalker.android.webkerneladapter.FileChooser;
+import com.honestwalker.android.webkerneladapter.IWebView;
+import com.honestwalker.android.webkerneladapter.InterceptRequest;
+import com.honestwalker.android.webkerneladapter.JSExecutor;
+import com.honestwalker.android.webkerneladapter.JSParam;
+import com.honestwalker.android.webkerneladapter.event.WebProgressChangedEvent;
 import xiaofei.library.hermeseventbus.HermesEventBus;
 
 /**

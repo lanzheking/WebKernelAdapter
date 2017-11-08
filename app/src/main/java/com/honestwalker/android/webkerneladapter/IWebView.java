@@ -1,4 +1,4 @@
-package main.java.com.honestwalker.android.webkerneladapter;
+package com.honestwalker.android.webkerneladapter;
 
 /**
  * Created by lanzhe on 17-9-27.

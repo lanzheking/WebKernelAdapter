@@ -1,4 +1,4 @@
-package main.java.com.honestwalker.android.webkerneladapter;
+package com.honestwalker.android.webkerneladapter;
 
 import android.net.Uri;
 import android.webkit.ValueCallback;

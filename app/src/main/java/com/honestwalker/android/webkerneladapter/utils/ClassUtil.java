@@ -1,4 +1,4 @@
-package main.java.com.honestwalker.android.webkerneladapter.utils;
+package com.honestwalker.android.webkerneladapter.utils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

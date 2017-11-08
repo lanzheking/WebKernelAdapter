@@ -1,4 +1,4 @@
-package main.java.com.honestwalker.android.webkerneladapter.event;
+package com.honestwalker.android.webkerneladapter.event;
 
 import com.honestwalker.android.webkerneladapter.WebAdapterView;
 

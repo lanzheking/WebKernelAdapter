@@ -1,4 +1,4 @@
-package main.java.com.honestwalker.android.webkerneladapter;
+package com.honestwalker.android.webkerneladapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,8 +10,8 @@ import android.webkit.ValueCallback;
 
 import com.honestwalker.android.webkerneladapter.WebAdapterView;
 
-import main.java.com.honestwalker.android.webkerneladapter.utils.ClassUtil;
-import main.java.com.honestwalker.android.webkerneladapter.utils.ExceptionUtil;
+import com.honestwalker.android.webkerneladapter.utils.ClassUtil;
+import com.honestwalker.android.webkerneladapter.utils.ExceptionUtil;
 
 /**
  * Created by lanzhe on 17-10-17.

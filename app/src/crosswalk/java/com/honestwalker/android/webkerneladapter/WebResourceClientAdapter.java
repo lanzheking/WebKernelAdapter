@@ -1,4 +1,4 @@
-package crosswalk.java.com.honestwalker.android.webkerneladapter;
+package com.honestwalker.android.webkerneladapter;
 
 import org.xwalk.core.XWalkResourceClient;
 import org.xwalk.core.XWalkView;

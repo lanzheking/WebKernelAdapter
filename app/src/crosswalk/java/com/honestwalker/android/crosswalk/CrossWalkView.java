@@ -1,4 +1,4 @@
-package crosswalk.java.com.honestwalker.android.crosswalk;
+package com.honestwalker.android.crosswalk;
 
 
 import android.app.Activity;
@@ -7,11 +7,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.webkit.ValueCallback;
 
-import com.honestwalker.android.webkerneladapter.FileChooser;
-import com.honestwalker.android.webkerneladapter.FileChooseCallback;
-import com.honestwalker.android.webkerneladapter.WebUIClient;
-import com.honestwalker.android.webkerneladapter.main.BuildConfig;
-import com.honestwalker.androidutils.IO.LogCat;
+import com.honestwalker.android.webkerneladapter.BuildConfig;
 
 import org.xwalk.core.XWalkJavascriptResult;
 import org.xwalk.core.XWalkNavigationHistory;
@@ -19,6 +15,9 @@ import org.xwalk.core.XWalkPreferences;
 import org.xwalk.core.XWalkSettings;
 import org.xwalk.core.XWalkUIClient;
 import org.xwalk.core.XWalkView;
+
+import main.java.com.honestwalker.android.webkerneladapter.FileChooseCallback;
+import main.java.com.honestwalker.android.webkerneladapter.WebUIClient;
 
 /**
  * Created by lanzhe on 17-9-25.
@@ -67,7 +66,7 @@ public class CrossWalkView extends XWalkView {
             @Override
             public void openFileChooser(XWalkView view, ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
 //                super.openFileChooser(view, uploadFile, acceptType, capture);
-                LogCat.d("FILE", "openFileChooser " + acceptType + " " + capture);
+                Log.d("FILE", "openFileChooser " + acceptType + " " + capture);
                 if(fileChooseCallback != null) {
                     fileChooseCallback.openFileChooser(uploadMsg, acceptType, capture);
                 }

@@ -1,21 +1,15 @@
-package crosswalk.java.com.honestwalker.android.webkerneladapter;
+package com.honestwalker.android.webkerneladapter;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 
-import com.google.gson.Gson;
-import com.honestwalker.android.commons.views.HtmlWebView.JSParam;
 import com.honestwalker.android.crosswalk.CrossWalkView;
-import com.honestwalker.android.webkerneladapter.event.WebProgressChangedEvent;
-import com.honestwalker.android.webkerneladapter.jscallback.JSCallbackSupport;
-import com.honestwalker.androidutils.IO.LogCat;
-import com.honestwalker.androidutils.UIHandler;
-import com.honestwalker.androidutils.equipment.DisplayUtil;
 
 import org.xwalk.core.XWalkCookieManager;
 import org.xwalk.core.XWalkView;
@@ -23,9 +17,15 @@ import org.xwalk.core.XWalkWebResourceRequest;
 import org.xwalk.core.XWalkWebResourceResponse;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
+import main.java.com.honestwalker.android.webkerneladapter.FileChooseCallback;
+import main.java.com.honestwalker.android.webkerneladapter.FileChooser;
+import main.java.com.honestwalker.android.webkerneladapter.IWebView;
+import main.java.com.honestwalker.android.webkerneladapter.InterceptRequest;
+import main.java.com.honestwalker.android.webkerneladapter.JSExecutor;
+import main.java.com.honestwalker.android.webkerneladapter.JSParam;
+import main.java.com.honestwalker.android.webkerneladapter.event.WebProgressChangedEvent;
 import xiaofei.library.hermeseventbus.HermesEventBus;
 
 /**
@@ -56,7 +56,7 @@ public class WebAdapterView extends CrossWalkView implements IWebView {
             public void onProgressChanged(XWalkView view, int progressInPercent) {
                 super.onProgressChanged(view, progressInPercent);
                 String url = view.getUrl();
-                LogCat.d("URL", url + " @ " + progressInPercent);
+                Log.d("URL", url + " @ " + progressInPercent);
                 HermesEventBus.getDefault().post(new WebProgressChangedEvent(WebAdapterView.this, progressInPercent));
             }
 
@@ -64,7 +64,6 @@ public class WebAdapterView extends CrossWalkView implements IWebView {
             public void onLoadStarted(XWalkView view, String url) {
                 super.onLoadStarted(view, url);
                 xWalkCookieManager.flushCookieStore();
-                isCookieChange();
             }
 
             @Override
@@ -79,7 +78,7 @@ public class WebAdapterView extends CrossWalkView implements IWebView {
                     if(interceptRequests != null) {
                         for (InterceptRequest interceptRequest : interceptRequests) {
                             if(interceptRequest.interceptRule(WebAdapterView.this, this, request.getUrl().toString())) {
-                                LogCat.d("URL", "拦截URL " + request.getUrl().toString());
+                                Log.d("URL", "拦截URL " + request.getUrl().toString());
                                 WebResourceResponseAdapter webResourceResponse = interceptRequest.getResponse(WebAdapterView.this, this, request.getUrl().toString());
                                 if(webResourceResponse != null) {
                                     return webResourceResponse;
@@ -163,45 +162,6 @@ public class WebAdapterView extends CrossWalkView implements IWebView {
 
     private String cookieCache = null;
 
-    private void isCookieChange() {
-        String cookie = WebViewContext.getInstance().getWebViewCookie("http://m.baidu.com");
-        if(cookieCache == null) {
-            cookieCache = cookie;
-        } else {
-            if(cookie != null && !cookie.equals(cookieCache)) {
-                LogCat.d("COOKIE2", "cookie 改变 ");
-                LogCat.d("COOKIE2", "cookie=" + cookie);
-                LogCat.d("COOKIE2", "cookieCache=" + cookieCache);
-                UIHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        WebViewContext.getInstance().saveWebViewCookieToLocal(getContext(), "http://m.baidu.com");
-                    }
-                });
-            }
-        }
-    }
-
-    /**
-     * 添加 js callback 配置 默认名称  jsApiBridge
-     * @param jsCallbackSupport
-     */
-    public void addJSCallback(JSCallbackSupport jsCallbackSupport) {
-        super.addJavascriptInterface(jsCallbackSupport, "jsApiBridge");
-    }
-
-    /**
-     * 添加 js callback 配置  , 自定义名称
-     * @param jsCallbackSupport
-     */
-    public void addJSCallback(JSCallbackSupport jsCallbackSupport, String name) {
-        super.addJavascriptInterface(jsCallbackSupport, name);
-    }
-
-//    public void addJsCallback(int configResId, String name) {
-//        super.setJSCallback(new JSCallbackSupport((Activity) getContext(), WebAdapterView.this, configResId), name);
-//    }
-
     /**
      * 重写USER AGENT
      * @param userAgent
@@ -215,21 +175,14 @@ public class WebAdapterView extends CrossWalkView implements IWebView {
      * @param userAgent
      */
     public void addUserAgent(String userAgent) {
-        String fixUserAgent = getSettings().getUserAgentString() + " " + userAgent +
-                " width=" + DisplayUtil.getWidth(context) + " height=" + DisplayUtil.getHeight(context);
-        LogCat.d("UA", fixUserAgent);
+        String fixUserAgent = getSettings().getUserAgentString() + " " + userAgent;
+        Log.d("UA", fixUserAgent);
         super.setUserAgentString(fixUserAgent);
     }
 
     @Override
     public void execJS(String method, JSParam paramKVMap) {
         JSExecutor.exeJS(this, method, paramKVMap);
-    }
-
-    public void testJSCallback(String action, HashMap<String , Object> params) {
-        if(params == null) params = new HashMap<>();
-        params.put("action", action);
-        execJS("window.jsApiBridge.app_callback('" + new Gson().toJson(params) + "')");
     }
 
     /**
@@ -256,11 +209,11 @@ public class WebAdapterView extends CrossWalkView implements IWebView {
 //        String cookie = WebViewContext.getWebViewCookie(url);
 //        WebViewContext.syncCookie(url, cookie);
 //        WebViewContext.syncCookie(url);
-        LogCat.d("COOKIE", "");
-        LogCat.d("COOKIE", url);
-        LogCat.d("COOKIE", "[COOKIE]: " + "  " + xWalkCookieManager.getCookie(url));
+        Log.d("COOKIE", "");
+        Log.d("COOKIE", url);
+        Log.d("COOKIE", "[COOKIE]: " + "  " + xWalkCookieManager.getCookie(url));
 
-        LogCat.d("COOKIE", "");
+        Log.d("COOKIE", "");
     }
 
 }

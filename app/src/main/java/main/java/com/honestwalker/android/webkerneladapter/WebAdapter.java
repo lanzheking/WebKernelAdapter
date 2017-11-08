@@ -4,16 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
-
-import com.honestwalker.android.webkerneladapter.main.BuildConfig;
-import com.honestwalker.android.webkerneladapter.utils.ClassUtil;
-import com.honestwalker.android.webkerneladapter.utils.ExceptionUtil;
-
+import com.honestwalker.android.webkerneladapter.BuildConfig;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import main.java.com.honestwalker.android.webkerneladapter.utils.ClassUtil;
 
 /**
  * web 内核适配器
@@ -83,13 +78,6 @@ public class WebAdapter extends WebKernelAdapter {
      * @return
      */
     public View getWebView() {
-//        if(KERNEL_WEBVIEW.equals(WebAdapterView.getKernelId())) {
-//
-//        } else if(KERNEL_X5.equals(WebAdapterView.getKernelId())) {
-//
-//        } else if(KERNEL_CROSSWALKER.equals(WebAdapterView.getKernelId())){
-//
-//        }
         return adapterWebView;
     }
 

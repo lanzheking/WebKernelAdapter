@@ -1,12 +1,12 @@
-package crosswalk.java.com.honestwalker.android.webkerneladapter;
+package com.honestwalker.android.webkerneladapter;
 
 import android.content.Context;
-
-import com.honestwalker.android.webkerneladapter.utils.IWebViewContext;
-import com.honestwalker.androidutils.IO.LogCat;
-import com.honestwalker.androidutils.IO.SharedPreferencesLoader;
+import android.util.Log;
 
 import org.xwalk.core.XWalkCookieManager;
+
+import main.java.com.honestwalker.android.webkerneladapter.SharedPreferencesLoader;
+import main.java.com.honestwalker.android.webkerneladapter.utils.IWebViewContext;
 
 /**
  * Created by lanzhe on 17-9-27.
@@ -52,7 +52,7 @@ public class WebViewContext implements IWebViewContext<XWalkCookieManager> {
 
         String cookie = getCookieManager().getCookie(url);
         SharedPreferencesLoader.getInstance(context).putString("COOKIE_" + url, cookie);
-        LogCat.d(COOKIE, "cookie=" + cookie);
+        Log.d(COOKIE, "cookie=" + cookie);
         return cookie;
     }
 
@@ -87,7 +87,7 @@ public class WebViewContext implements IWebViewContext<XWalkCookieManager> {
 
     public void syncCookie(String url, String cookie) {
         getCookieManager().setCookie(url, cookie);
-        LogCat.d(TAG, "sync cookie " + url + "  " + cookie);
+        Log.d(TAG, "sync cookie " + url + "  " + cookie);
     }
 
     /**

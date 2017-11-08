@@ -30,7 +30,6 @@ abstract class WebKernelAdapter extends LinearLayout {
         this.defStyleAttr = defStyleAttr;
     }
 
-    @android.support.annotation.RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public WebKernelAdapter(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         this.attrs = attrs;

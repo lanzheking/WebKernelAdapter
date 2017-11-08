@@ -8,9 +8,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.webkit.ValueCallback;
 
-import com.honestwalker.android.webkerneladapter.utils.ClassUtil;
-import com.honestwalker.androidutils.exception.ExceptionUtil;
-import com.honestwalker.androidutils.window.DialogHelper;
+import com.honestwalker.android.webkerneladapter.WebAdapterView;
+
+import main.java.com.honestwalker.android.webkerneladapter.utils.ClassUtil;
 
 /**
  * Created by lanzhe on 17-10-17.

@@ -4,6 +4,10 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.webkit.WebResourceRequest;
 
+import com.honestwalker.android.webkerneladapter.WebAdapterView;
+import com.honestwalker.android.webkerneladapter.WebResourceClientAdapter;
+import com.honestwalker.android.webkerneladapter.WebResourceResponseAdapter;
+
 /**
  * Created by lanzhe on 17-5-27.
  */

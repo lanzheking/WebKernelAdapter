@@ -4,12 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 import android.webkit.ValueCallback;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
 
-import com.honestwalker.android.webkerneladapter.main.BuildConfig;
-import com.honestwalker.androidutils.IO.LogCat;
+import com.honestwalker.android.webkerneladapter.BuildConfig;
+import com.honestwalker.android.webkerneladapter.WebAdapterView;
 
 /**
  * Created by lanzhe on 17-6-22.
@@ -57,7 +56,7 @@ public class FileChooser {
                     } else {
                         uploadMessage.onReceiveValue(uri);
                     }
-                    LogCat.i(TAG, "uri = "+ uri);
+                    Log.i(TAG, "uri = "+ uri);
                 }
             } else {
                 uploadMessage.onReceiveValue(null);
